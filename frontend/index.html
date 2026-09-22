@@ -1,1 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Auditor Agent</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <header class="main-header">
+        <nav class="navbar">
+            <div class="logo-container">
+                <div class="logo-icon-placeholder">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M12 8v8M8 12h8" />
+                    </svg>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#search" class="nav-link">Search</a></li>
+                <li><a href="#results" class="nav-link">Results</a></li>
+                <li><a href="#how-it-works" class="nav-link">How it Works</a></li>
+                <li><a href="#why-us" class="nav-link">Why Us</a></li>
+                <li><a href="#architecture" class="nav-link">Architecture</a></li>
+                <li><a href="#team" class="nav-link">Team</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <div class="hero-logo-large">
+                    <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+                        <line x1="3" y1="6" x2="21" y2="6" />
+                        <path d="M16 10a4 4 0 0 1-8 0" />
+                    </svg>
+                </div>
+                <h1 class="hero-title">Shop Auditor Agent</h1>
+                <!-- زر Audit Now ينقل مباشرة لسكشن البحث -->
+                <a href="#search" class="btn-audit-now">Audit Now</a>
+            </div>
+        </section>
+
+        <!-- Tagline Section -->
+        <section class="tagline-section">
+            <h2 class="tagline-title">Your Smart AI Market Inspector</h2>
+            <p class="tagline-description">
+                Upload a photo or type what you need, and let our agent audit every store to bring you the best deals
+            </p>
+        </section>
+
+        <!-- Smart Search Section -->
+        <section id="search" class="search-section">
+            <h2 class="search-title">Smart Search</h2>
+
+            <div class="search-box-container">
+                <textarea class="search-input" placeholder="Describe the item, paste a link, or ask for specific product . . ." rows="3"></textarea>
+
+                <div class="search-actions">
+                    <label class="btn-add-image">
+                        <input type="file" accept="image/*" class="file-input-hidden" />
+                        <svg class="icon-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="12" y1="8" x2="12" y2="16" />
+                            <line x1="8" y1="12" x2="16" y2="12" />
+                        </svg>
+                        <span>Add image</span>
+                    </label>
+
+                    <button class="btn-submit-search" type="submit" aria-label="Search">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10" />
+                            <polyline points="12 8 16 12 12 16" />
+                            <line x1="8" y1="12" x2="16" y2="12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section id="results" class="results-section">
+            <div class="results-header">
+                <h2 class="results-title">Audited Results</h2>
+                <p class="results-count">Found <span class="highlight-count">0</span> Deals</p>
+            </div>
+
+            <!-- Loading Indicator Container (يكون مخفي بشكل افتراضي) -->
+            <div id="loadingContainer" class="loading-container hidden">
+                <div class="spinner"></div>
+                <p class="loading-text">Auditing stores and analyzing deals with AI...</p>
+            </div>
+
+            <!-- حاوية كروت النتائج -->
+            <div class="results-grid" id="resultsGrid">
+                <!-- سيتم تعبئة الكروت هنا ديناميكياً بواسطة JavaScript -->
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section id="how-it-works" class="info-section">
+            <h2>How It Works</h2>
+            <p>Our autonomous agent scans multiple marketplaces, compares prices, and verifies specs in real-time.</p>
+        </section>
+
+        <!-- Why Us Section -->
+        <section id="why-us" class="info-section">
+            <h2>Why Us</h2>
+            <p>Unbiased results, AI-powered price comparison, and instant multi-store analysis.</p>
+        </section>
+
+        <!-- Architecture Section -->
+        <section id="architecture" class="info-section">
+            <h2>Architecture</h2>
+            <p>Powered by FastAPI, LangGraph, and Multimodal Vision LLMs.</p>
+        </section>
+
+        <!-- Team Section -->
+        <section id="team" class="info-section">
+            <h2>Team</h2>
+            <p>Built with passion by our Intelligent Systems Engineering team.</p>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

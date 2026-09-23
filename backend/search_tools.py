@@ -12,33 +12,50 @@ if not API_KEY:
 client = TavilyClient(api_key=API_KEY)
 
 
-def stores_search(query: str, results_max: int = 5):
+def stores_search(query: str, results_max: int = 6):
     try:
+        # توجيه البحث تلقائياً لصفحات الشراء والمتاجر المباشرة
+        store_query = f"{query} سعر شراء متجر مصر amazon.eg noon jumia btech"
+
         response = client.search(
-            query=query,
+            query=store_query,
             max_results=results_max,
-            search_depth="advanced"
+            search_depth="advanced",
+            include_images=True
         )
 
         results = []
+        fetched_images = response.get("images", [])
 
-        for result in response.get("results", []):
+        # صورة افتراضية عالية الجودة في حال عدم توفر صورة بالنتيجة
+        default_img = "https://m.media-amazon.com/images/I/71WjsA0L7VL._AC_SL1500_.jpg"
+
+        for idx, result in enumerate(response.get("results", [])):
+            img = result.get("image") or result.get("primary_image")
+            if not img and idx < len(fetched_images):
+                img_item = fetched_images[idx]
+                img = img_item if isinstance(img_item, str) else img_item.get("url")
+
+            if not img:
+                img = default_img
+
             results.append({
                 "title": result.get("title", "غير متوفر"),
-                "url": result.get("url", "غير متوفر"),
-                "content": result.get("content", "غير متوفر")
+                "url": result.get("url", "#"),
+                "content": result.get("content", ""),
+                "image": img
             })
 
         return results
 
     except Exception as e:
-        return {"error": str(e)}
+        print(f"[SEARCH ERROR]: {str(e)}")
+        return []
+
 
 if __name__ == "__main__":
     query = input("Enter search query: ").strip()
-
     if query:
         print(stores_search(query))
     else:
         print("Please enter a search query.")
-

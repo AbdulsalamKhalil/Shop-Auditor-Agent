@@ -4,3 +4,9 @@ python-dotenv
 groq
 tavily-python
 pydantic
+python-multipart
+langgraph
+
+# cd backend
+#pip install -r requirements.txt
+# python -m uvicorn main:app --reload

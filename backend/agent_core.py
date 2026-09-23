@@ -58,7 +58,7 @@ def run_agent(user_query: str) -> dict:
     try:
         for _ in range(max_turns):
             response = client.chat.completions.create(
-                model="openai/gpt-oss-20b",  # موديل مستقر وسريع ويدعم الأدوات على Groq
+                model="qwen/qwen3.8-27b",  # موديل مستقر وسريع ويدعم الأدوات على Groq
                 messages=messages,
                 tools=tools,
                 tool_choice="auto"

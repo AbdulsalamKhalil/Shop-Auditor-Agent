@@ -1,4 +1,4 @@
-// 1. دالة عرض الصفقات
+
 function renderDeals(deals) {
   const grid = document.getElementById('resultsGrid');
   const countSpan = document.querySelector('.highlight-count');

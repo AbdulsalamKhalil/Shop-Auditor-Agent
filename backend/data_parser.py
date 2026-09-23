@@ -101,7 +101,7 @@ def json_to_format(data_raw: Any) -> dict:
 
     try:
         response = client.chat.completions.create(
-            model="openai/gpt-oss-20b",  # موديل خفيف ومستقر جداً مع الـ JSON
+            model="qwen/qwen3.8-27b",  # موديل خفيف ومستقر جداً مع الـ JSON
             messages=[
                 {
                     "role": "system",
